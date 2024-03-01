@@ -1,0 +1,48 @@
+.users-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .back-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .user-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 25px;
+  }
+  
+  .user-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-info {
+    flex-grow: 1;
+  }
+  
+  .more-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+
+.user-info {
+    display: inline-block; 
+  }
+  
+  .user-info .short-value {
+    color: #ff0000; 
+    font-weight: bold; 
+  }
+  

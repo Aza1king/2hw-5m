@@ -1,0 +1,27 @@
+header {
+    background-color: #007bff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex; 
+    justify-content: center;
+  }
+  
+  header a {
+    margin-left: 50px; 
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  header a:first-child {
+    margin-left: 0; 
+  }
+  
+  header a:hover {
+    color: #d02b2b;
+    transition: 0.7s;
+  }
+  
