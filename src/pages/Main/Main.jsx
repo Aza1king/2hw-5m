@@ -1,25 +1,24 @@
-import React from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
-import './Main.css';
+// src/pages/Main.js
+import React from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import "./Main.css";
 
 const Main = () => {
+  const location = useLocation();
+  const previousPath = location.state?.from || "/";
 
-    const location = useLocation();
-    console.log(location)
-     
   return (
     <>
-    <header>
-        <Link to='/'state={{from:location.pathname}}>Home</Link>
+      <header>
+        <Link to="/">Home</Link>
         <br />
-        <Link to='/users'state={{from:location.pathname}}>Users</Link>
+        <Link to="/users">Users</Link>
         <br />
-        <Link to='/posts'state={{from:location.pathname}}>Posts</Link>
-
-    </header>
-    <Outlet/>
+        <Link to="/posts">Posts</Link>
+      </header>
+      <Outlet />
     </>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

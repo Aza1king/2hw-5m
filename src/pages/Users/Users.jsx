@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setPath, selectPreviousComponent } from "../../store/navigationSlice";
+import { fetchUsers, selectUsers, selectLoading } from "../../store/usersSlice";
 import "./Users.css";
 
 const getShortValue = (value) => {
-    if (value.length > 20) {
-      return (
-        <span>
-          {value.substring(0, 20)}<span className="short-value">20+</span>
-        </span>
-      );
-    } else {
-      return value;
-    }
-  };
-  
+  if (value.length > 20) {
+    return (
+      <span>
+        {value.substring(0, 20)}
+        <span className="short-value">20+</span>
+      </span>
+    );
+  } else {
+    return value;
+  }
+};
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const onBtnClick = () => navigate(-1);
+  const location = useLocation();
+  const users = useSelector(selectUsers);
+  const loading = useSelector(selectLoading);
+  const previousComponent = useSelector(selectPreviousComponent);
 
   useEffect(() => {
-    setLoading(true);
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .finally(() => setLoading(false));
-  }, []);
+    dispatch(fetchUsers());
+    dispatch(setPath(location.pathname));
+  }, [dispatch, location.pathname]);
+
+  const onBtnClick = () => navigate(-1);
 
   return (
     <div className="users-container">
@@ -55,6 +58,7 @@ const Users = () => {
           </ul>
         )}
       </div>
+      <p>Previous Component: {previousComponent}</p>
     </div>
   );
 };

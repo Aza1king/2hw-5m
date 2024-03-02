@@ -1,14 +1,19 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPath, selectPreviousComponent } from "../../store/navigationSlice";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const onBtnClick = () => navigate("/users");
+  const dispatch = useDispatch();
+  const previousComponent = useSelector(selectPreviousComponent);
+
+  useEffect(() => {
+    dispatch(setPath("/home"));
+  }, [dispatch]);
 
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={onBtnClick}>Navigate to users page</button>
+      <p>Previous Component: {previousComponent}</p>
     </div>
   );
 };

@@ -4,7 +4,7 @@
     color: #333;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative; /* добавляем это свойство */
+    position: relative; 
   }
   
   .user-details-container h2 {
@@ -29,13 +29,24 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    position: fixed; /* добавляем это свойство */
-    bottom: 20px; /* располагаем внизу экрана */
-    right: 20px; /* располагаем вправо экрана */
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
   }
   
   .user-details-container button:hover {
     background-color: #b31b00;
     transition: background-color 0.7s;
   }
-  
+  .back-container{
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 20px; 
+    right: 100px; 
+  }

@@ -1,17 +1,23 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { setPath, selectPreviousComponent } from "../../store/navigationSlice";
 
 const Posts = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const previousPath = location.state?.from || '/';
 
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const onBackClick= ()=> navigate(location.state?.from || '/');
+  useEffect(() => {
+    dispatch(setPath("/posts"));
+  }, [dispatch]);
 
   return (
-    <div><h2>Posts page</h2> 
-    <button onClick={onBackClick}>onBack</button></div>
-  )
-}
+    <div>
+      <h2>Posts Page</h2>
+      <p>Previous Component: {previousPath}</p>
+    </div>
+  );
+};
 
-export default Posts
+export default Posts;
