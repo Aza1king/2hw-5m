@@ -5,7 +5,7 @@ import "./Main.css";
 
 const Main = () => {
   const location = useLocation();
-  const previousPath = location.state?.from || "/";
+  
 
   return (
     <>

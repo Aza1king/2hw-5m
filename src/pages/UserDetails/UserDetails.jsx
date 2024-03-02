@@ -11,6 +11,7 @@ const UserDetails = () => {
   const navigate = useNavigate();
   const params = useParams();
 
+
   useEffect(() => {
     dispatch(setPath(`/users/${params.id}`));
   }, [dispatch, params.id]);
@@ -45,7 +46,9 @@ const UserDetails = () => {
         ))}
       </ul>
       <div className="back-container">
-        <button onClick={onBackClick}><p>Back to: {path.replace(/[^a-zA-Z]/g, '')}</p></button>
+        <button onClick={onBackClick}>
+          <p>Back to: {path.replace(/[^a-zA-Z]/g, "")}</p>
+        </button>
       </div>
     </div>
   );

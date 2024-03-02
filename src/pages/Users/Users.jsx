@@ -25,10 +25,11 @@ const Users = () => {
   const users = useSelector(selectUsers);
   const loading = useSelector(selectLoading);
   const previousComponent = useSelector(selectPreviousComponent);
-
   useEffect(() => {
     dispatch(fetchUsers());
-    dispatch(setPath(location.pathname));
+    return () => {
+      dispatch(setPath("/users"));
+    };
   }, [dispatch, location.pathname]);
 
   const onBtnClick = () => navigate(-1);

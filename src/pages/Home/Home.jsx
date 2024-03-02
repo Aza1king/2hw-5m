@@ -7,7 +7,9 @@ const Home = () => {
   const previousComponent = useSelector(selectPreviousComponent);
 
   useEffect(() => {
-    dispatch(setPath("/home"));
+    return () => {
+      dispatch(setPath("/home"));
+    };
   }, [dispatch]);
 
   return (
